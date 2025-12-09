@@ -1,5 +1,6 @@
 package net.asiedlecki.owocny.owocny_springai_demo.api;
 
+import net.asiedlecki.owocny.owocny_springai_demo.model.StructuredListResponse;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,11 +17,17 @@ public class ChatController {
     }
 
     @GetMapping("/")
-    public String joke(@RequestParam(value = "message", defaultValue = "Jakie znasz rodzaje gleb występujące w Polsce? Wymień nazwy.") String message) {
+    public StructuredListResponse joke(@RequestParam(value = "message", defaultValue = "Jakie znasz rodzaje gleb występujące w Polsce? Wymień nazwy.") String message) {
         return chatClient.prompt()
                 .user(message)
+                .system("""
+                        Gdy użytkownik pyta o wymienienie rzeczy jakiegoś rodzaju, napisz krótki wstęp - maksymalnie 2 zdania.
+                        Następnie wymień te rzeczy bez zbędnego przedłużania.
+                        
+                        Odpowiadaj **wyłącznie** czystym JSON — bez dodatkowych tekstów, znaczników, tokenów lub wyjaśnień.
+                        """)
                 .call()
-                .content();
+                .entity(StructuredListResponse.class);
     }
 
 }
