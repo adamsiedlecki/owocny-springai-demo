@@ -17,14 +17,12 @@ public class ChatController {
     }
 
     @GetMapping("/")
-    public StructuredListResponse joke(@RequestParam(value = "message", defaultValue = "Jakie znasz rodzaje gleb występujące w Polsce? Wymień nazwy.") String message) {
+    public StructuredListResponse question(@RequestParam(value = "message", defaultValue = "Wymień klasy gleby w Polsce i stawki podatku rolnego dla każdej z nich.") String message) {
         return chatClient.prompt()
                 .user(message)
                 .system("""
                         Gdy użytkownik pyta o wymienienie rzeczy jakiegoś rodzaju, napisz krótki wstęp - maksymalnie 2 zdania.
-                        Następnie wymień te rzeczy bez zbędnego przedłużania.
-                        
-                        Odpowiadaj **wyłącznie** czystym JSON — bez dodatkowych tekstów, znaczników, tokenów lub wyjaśnień.
+                        Następnie wymień te rzeczy wraz z informacjami które chce użytkownik, ale bez zbędnego przedłużania.
                         """)
                 .call()
                 .entity(StructuredListResponse.class);
