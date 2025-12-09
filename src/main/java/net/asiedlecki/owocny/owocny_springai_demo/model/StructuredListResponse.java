@@ -1,6 +1,6 @@
 package net.asiedlecki.owocny.owocny_springai_demo.model;
 
-import java.util.Map;
+import java.util.List;
 
-public record StructuredListResponse(String wstep, Map<String, String> rodzajeOrazStawki) {
+public record StructuredListResponse(String wstep, List<KlasaStawka> stawkiPodatku) {
 }

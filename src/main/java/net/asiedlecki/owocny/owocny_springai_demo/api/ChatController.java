@@ -19,7 +19,7 @@ public class ChatController {
     }
 
     @GetMapping("/")
-    public StructuredListResponse question(@RequestParam(value = "message", defaultValue = "Wymień klasy gleby w Polsce i stawki podatku rolnego dla każdej z nich.") String message) {
+    public StructuredListResponse question(@RequestParam(value = "message", defaultValue = "Wymień klasy gleby w Polsce i policz stawki podatku rolnego dla każdej z nich - dla powierzchni 2Ha .") String message) {
         return chatClient.prompt()
                 .user(message)
                 .system("""

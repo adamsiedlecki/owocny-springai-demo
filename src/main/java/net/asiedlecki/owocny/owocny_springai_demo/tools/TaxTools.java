@@ -10,17 +10,15 @@ public class TaxTools {
     @Tool(description = "Oblicza stawkę podatku rolnego")
     public double calculateTax(
             @Schema(description = "powierchniaHa") double area,
-            @Schema(description = "klasa ziemi - może być I, II, III, IVa, IVb") String klasaZiemi,
-            @Schema(description = "strefa - może być miejska, podmiejska, wiejska, wiejska oddalona") String strefa
+            @Schema(description = "klasa ziemi - może być I, II, III, IVa, IVb") String klasaZiemi
     ) {
-        if (klasaZiemi.equals("I")) {
-            return area * 1000;
-        }
-        return switch (strefa) {
-            case "miejska" -> area * 100;
-            case "podmiejska" -> area * 90;
-            case "wiejska" -> area * 80;
-            case "wiejska oddalona" -> area * 50;
+        System.out.println("TaxTools invoked");
+        return switch (klasaZiemi) {
+            case "I" -> area * 100;
+            case "II" -> area * 90;
+            case "III" -> area * 80;
+            case "IVa" -> area * 50;
+            case "IVb" -> area * 30;
             default -> 2137;
         };
     }
