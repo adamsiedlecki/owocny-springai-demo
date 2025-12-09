@@ -11,7 +11,9 @@ com.fasterxml.jackson.core.JsonParseException: Unexpected character ('<' (code 6
 at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 1]
 ```
 
-Bielik v3 nie wspiera tools
+Bielik v3, deepseek r1, deepseek v2 nie wspiera tools
 ``` 
 HTTP 400 - {"error":"registry.ollama.ai/SpeakLeash/bielik-4.5b-v3.0-instruct:Q8_0 does not support tools"}
+HTTP 400 - {"error":"registry.ollama.ai/library/deepseek-r1:14b does not support tools"}
+HTTP 400 - {"error":"registry.ollama.ai/library/deepseek-v2:16b does not support tools
 ```
