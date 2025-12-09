@@ -1,6 +1,7 @@
 package net.asiedlecki.owocny.owocny_springai_demo.api;
 
 import net.asiedlecki.owocny.owocny_springai_demo.model.StructuredListResponse;
+import net.asiedlecki.owocny.owocny_springai_demo.tools.TaxTools;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,8 +12,9 @@ public class ChatController {
 
     private final ChatClient chatClient;
 
-    public ChatController(ChatClient.Builder builder) {
+    public ChatController(ChatClient.Builder builder, TaxTools taxTools) {
         this.chatClient = builder
+                .defaultTools(taxTools)
                 .build();
     }
 
