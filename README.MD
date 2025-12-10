@@ -58,3 +58,21 @@ http://localhost:8080/unstructured?message=Kiedy płatności końcowe z ARMIR tr
 Płatności końcowe z ARMIR trafiają do rolników wraz z początkiem grudnia 2025 roku i potrwają do 30 czerwca 2026 roku. Do 9 grudnia 2025 r. ubiegający się o dopłaty otrzymali już 11,64 mld zł.
 ```
 
+```agsl
+http://localhost:8080/unstructured?message=Jakie sołectwa są w gminie Jasieniec?
+
+Nie ma w podanym kontekście informacji o sołectwach w gminie Jasieniec. Aby uzyskać te dane, zalecałbym skorzystanie z serwisu互联网工具无法回答关于雅申采克市的村庄信息，因为提供的内容中没有这方面的信息。建议访问官方网站或使用地图服务获取此类详细的地方行政区划数据。请问您需要其他帮助吗？
+
+ Po dodaniu https://pl.wikipedia.org/wiki/Jasieniec_(gmina) nadal halucynuje, możliwe że wciąga za dużo zbędnych informacji.
+
+```
+
+### Błędy ogólne
+
+halucynacje niezwiązane z pytaniem, ale związane z tym co ma w vectorStore
+```agsl
+http://localhost:8080/unstructured?message=Jakie sołectwa są w gminie Jasieniec?
+
+Czy masz na myśli klasy botaniczne gleb pod względem ujemnych cech? W Polsce klasy gleb zgodnie ze standardami geologicznymi są oznaczane jako I (najlepsza) do V (najgorsza), ale nie ma precyzyjnej informacji w Twoim pytaniu, która była by związana z konkretną listą klas gleb: I, II, III, IVa i IVb. Czy możesz dostarczyć więcej kontekstu na ten temat? Może to pomóc mi udzielić dokładniejszej odpowiedzi.
+```
+

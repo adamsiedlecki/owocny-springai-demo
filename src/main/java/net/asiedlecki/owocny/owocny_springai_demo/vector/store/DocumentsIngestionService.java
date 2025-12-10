@@ -45,8 +45,8 @@ public class DocumentsIngestionService implements CommandLineRunner {
 
         webPages.forEach(webPage -> {
             try {
-                addResurceToVectorStore(new UrlResource(webPage));
-            } catch (MalformedURLException e) {
+                addResurceToVectorStore(LinkFetcher.fetchPage(webPage));
+            } catch (IOException e) {
                 log.error("Blad podczas ladowania strony: {}", e);
             }
             log.info("Wczytano strone do vectorStore: {}", webPage);
