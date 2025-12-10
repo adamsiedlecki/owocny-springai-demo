@@ -1,4 +1,4 @@
-Notatki
+## Notatki
 
 Mechanizm .entity do structured output jest chyba zawodny
 ```
@@ -43,5 +43,18 @@ Owocny.com jest serwisem oferującym system zarządzania sadem (OMS) dla owocowy
 - Raport akordowy wysyłany na maila, co ułatwia rozliczanie się z kontrahentami bez potrzeby podliczania ręcznie zeszytu.
 
 Sytsem jest zaprojektowany tak, aby upraszczać proces zarządzania owocowymi gospodarstwami i ułatwiać pracę zarówno na polach, jak i przy analizie danych.
+```
+
+### Zrobiłem mechanizm dodawania stron internetowych do vectorStore.
+Próbowałem dać link do aktualności, zaciągnąć html wszystkich href stamtąd i dodać do truststore.
+Niestety odpowiedzi były słabe.
+Dając pojedyńczą stronę, wynik jest bardzo dobry.
+```agsl
+Wczytano strone do vectorStore: https://www.gov.pl/web/arimr/platnosci-koncowe-trafiaja-do-rolnikow
+
+http://localhost:8080/unstructured?message=Kiedy płatności końcowe z ARMIR trafią do rolników?
+
+
+Płatności końcowe z ARMIR trafiają do rolników wraz z początkiem grudnia 2025 roku i potrwają do 30 czerwca 2026 roku. Do 9 grudnia 2025 r. ubiegający się o dopłaty otrzymali już 11,64 mld zł.
 ```
 
