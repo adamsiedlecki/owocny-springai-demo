@@ -1,19 +1,22 @@
 package net.asiedlecki.owocny.owocny_springai_demo.tools;
 
-import net.asiedlecki.owocny.owocny_springai_demo.model.tools.input.TaxInput;
+import lombok.extern.slf4j.Slf4j;
+import net.asiedlecki.owocny.owocny_springai_demo.model.tools.tax.TaxOutput;
 import org.springframework.ai.tool.annotation.Tool;
+import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Slf4j
 @Component
 public class TaxTools {
 
     @Tool(name="obliczanie_podatku_rolnego", description = "Oblicza_podatek_rolny")
-    public double calculateTax(TaxInput input) {
-        System.out.println("TaxTools invoked - calculateTax");
-        double powierzchnia = input.powierzchnia();
-        return switch (input.klasaGleby()) {
+    public double calculateTax(@ToolParam(description = "powierchnia_w_hektarach") double powierzchnia,
+                               @ToolParam(description = "klasa_gleby") String klasaGleby) {
+        log.info("TaxTools invoked - calculateTax {} Ha, klasa: {}", powierzchnia, klasaGleby);
+        return switch (klasaGleby) {
             case "I" -> powierzchnia * 100;
             case "II" -> powierzchnia * 90;
             case "III" -> powierzchnia * 80;
@@ -23,9 +26,9 @@ public class TaxTools {
         };
     }
 
-    @Tool(name="pobieranie_klas_gleby", description = "Pobiera_rodzaje_klas_gleby")
-    public List<String> getAreaTypes() {
-        System.out.println("TaxTools invoked - getAreaTypes");
-        return List.of("I", "II", "III", "IVa",  "IVb");
+    @Tool(name="pobieranie_klas_gleb_w_polsce", description = "Pobiera_rodzaje_klas_gleby")
+    public TaxOutput getAreaTypes() {
+        log.info("TaxTools invoked - getAreaTypes");
+        return new TaxOutput(List.of("I", "II", "III", "IVa",  "IVb"));
     }
 }
