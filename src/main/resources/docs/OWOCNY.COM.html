@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>OWOCNY.COM</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="icon" type="image/svg+xml" href="OWOCNY.COM_pliki/logo.svg">
+		<link rel="stylesheet" href="OWOCNY.COM_pliki/style.css">
+		<link rel="stylesheet" href="OWOCNY.COM_pliki/all.min.css">
+	<link id="chromealerabat-link" rel="stylesheet" type="text/css" href="OWOCNY.COM_pliki/content.css"><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style></head>
+	<body class="dark-mode">
+		<button class="theme-toggle" aria-label="Zmień tryb kolorów" onclick="toggleTheme()">
+			<i class="fa fa-sun"></i>
+		</button>
+
+		<script>
+
+			
+
+			function toggleTheme() {
+				console.log("toggleTheme");
+				const body = document.body;
+				const icon = document.querySelector('.theme-toggle i');
+				body.classList.toggle('dark-mode');
+
+				// Zapis preferencji w localStorage
+				if (body.classList.contains('dark-mode')) {
+					icon.classList.replace('fa-moon', 'fa-sun');
+					localStorage.setItem('theme', 'dark');
+				} else {
+					icon.classList.replace('fa-sun', 'fa-moon');
+					localStorage.setItem('theme', 'light');
+				}
+				}
+
+				// Odczyt ustawienia przy ładowaniu strony
+				window.addEventListener('DOMContentLoaded', () => {
+					const savedTheme = localStorage.getItem('theme');
+					console.log("Theme: " + savedTheme);
+					const icon = document.querySelector('.theme-toggle i');
+
+					if (!savedTheme || savedTheme === 'dark') {
+						document.body.classList.add('dark-mode');
+						icon.classList.replace('fa-moon', 'fa-sun');
+					}
+				});
+		</script>
+
+			<div>
+				<section class="banner" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
+					<!-- Lewa kolumna: treść -->
+					<div class="content" style="flex: 1 1 300px;">
+						<h1>OWOCNY.COM</h1>
+						<p class="major">Rozwiązania przynoszące korzyści 🍎🍓</p>
+						<a href="https://oms.owocny.com/" target="_blank" class="button">System OMS dla sadowników</a>
+					</div>
+
+					<!-- Prawa kolumna: logo + particle -->
+					<div id="particles-container" style="flex: 1 1 300px; position: relative; min-height: 400px;">
+						<!-- Tło particle -->
+						<div id="particles-js" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;" width="1239" height="400"></canvas></div>
+
+						<!-- Logo na wierzchu -->
+						<div style="position: relative; width: 50%; height: 50%; margin: auto; top: 0; bottom: 0; left: 0; right: 0; display: flex; justify-content: center; align-items: center;">
+							<img src="OWOCNY.COM_pliki/logo.svg" alt="Logo" style="width: 100%; height: 100%; object-fit: contain;">
+						</div>
+					</div>
+				</section>
+
+					
+
+					<section id="first">
+						<div class="content">
+							<h2>OMS - System zarządzania sadem</h2>
+							<p>Twój inteligentny zeszyt - narzędzie analityczne w nowoczesnym stylu.</p>
+							<ul>
+								<li>łatwe rozliczenia akordowe</li>
+								<li>szybkie drukowanie etykiet</li>
+								<li>wizualizacje efektów swojej pracy</li>
+								<li>analiza wydajności per kwatera/odmiana/rok zasadzenia/wysokość kwatery n.p.m. (dane z gov.pl) i więcej!</li>
+							</ul>
+						</div>
+						<div class="image">
+							<img src="OWOCNY.COM_pliki/apples.jpg" alt="">
+						</div>
+
+					</section>
+
+					<section class="wrapper">
+						<div class="inner">
+							<h2>Prostota i funkcjonalność</h2>
+							<p>Rozwiązanie tworzone na podstawie własnych potrzeb w rodzinnym gospodarstwie - upraszcza to, co tylko się da</p>
+							<div class="features">
+								<section>
+									<span class="icon fa-solid fa-map"></span>
+									<h3>Twoje uprawy</h3>
+									<p>Zaznaczasz na mapce (najlepiej na komputerze) swoje kwatery w
+ postaci wieloboków na mapie. Wpisujesz typ (np. jabłka), odmianę i rok 
+posadzenia dla każdej z nich.</p>
+								</section>
+								<section>
+									<span class="icon fa-solid fa-save"></span>
+									<h3>Kolejne mapki</h3>
+									<p>
+										Czas mija, a Twoje uprawy się zmieniają. W nowym roku tworzysz
+ nową mapkę na bazie starej, usuwasz lub edytujesz to co się zmieniło - 
+lub dodajesz nowe uprawy.
+									</p>
+								</section>
+								<section>
+									<span class="icon fa-solid fa-plus"></span>
+									<h3>Zbiory</h3>
+									<p>Gdy zbierasz swoje plony w opakowania, zapisujesz je w 
+aplikacji mobilnej (system Android). Wybierasz kwaterę na mapie i 
+aplikacja już wie, co to za odmiana.</p>
+								</section>
+								<section>
+									<span class="icon fa-solid fa-print"></span>
+									<h3>Drukowanie naklejek</h3>
+									<p>Bezpośrednio po zapisaniu możesz wydrukować naklejki - 
+używając taniej, wygodnej bezprzewodowej drukarki, którą możesz zabrać 
+ze sobą na pole.</p>
+								</section>
+								<section>
+									<span class="icon fa-solid fa-arrow-up-wide-short"></span>
+									<h3>Ład i porządek</h3>
+									<p>Naklejki na opakowaniach zawierają takie dane jak kraj 
+pochodzenia, nazwa odmiany, data zbioru, klasa jakości, ID wpisu w 
+systemie,
+										 (a nawet Twój adres i nazwę gospodarstwa, jeśli podasz).
+										Dzięki temu:
+										</p><ul>
+											<li>łatwiej magazynować towar</li>
+											<li>przy sprzedaży dopełnione są formalności dot. znakowania owoców</li>
+											<li>jeśli Twój kontrahent zwraca Ci opakowania, jest mniejsza szansa, że zostaną pomylone</li>
+										</ul>
+									<p></p>
+								</section>
+								<section>
+									<span class="icon fa-solid fa-chart-bar"></span>
+									<h3>Statystyki</h3>
+									<p>
+										Skoro w systemie zapisana jest ilość i kwatera źródłowa, a także inne podstawowe informacje, można je przeanalizować.
+										System sprawia, że jest to łatwiejsze.
+									</p>
+									np.
+									<ul>
+										<li>Jaka jest wydajność w t/Ha poszczególnych kwater i odmian?</li>
+										<li>Jaki wpływ ma rok zasadzenia kwatery na % przemysłu?</li>
+										<li>Jak koreluje wysokość n.p.m. z wydajnością kwater? (system pobiera dane o wysokości punktów z geoportal.gov.pl)</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<div class="gallery">
+							<article>
+								<a href="https://owocny.com/images/raport-akordowy-email.jpg" class="image">
+									<img src="OWOCNY.COM_pliki/raport-akordowy-email.jpg" alt="raport akordowy przesyłany na email">
+								</a>
+								<div class="caption">
+									<h3>Raport akordowy</h3>
+									<p>Użytkownik w aplikacji mobilnej wpisuje wymagane parametry 
+(rodzaj rozliczenia, stawka) a system wysyła na maila raport, który 
+można łattwo wydrukować. 
+										Koniec z ręcznym podliczaniem zeszytu.
+									</p>
+								</div>
+							</article>
+							<article>
+								<a href="https://owocny.com/images/rysowanie-kwater.png" class="image">
+									<img src="OWOCNY.COM_pliki/rysowanie-kwater.png" alt="rysowanie kwater upraw">
+								</a>
+								<div class="caption">
+									<h3>Edytor map upraw</h3>
+									<p>Aplikacja umożliwia wprowadzanie i edycję swoich upraw.
+										 Każda kwatera w systemie ma swój kształt, współrzędne, powierzchnię i numer
+										 -  a także typ uprawy, odmianę i rok posadzenia, jeśli uzytkownik poda te informacje.
+									</p>
+								</div>
+							</article>
+							<article>
+								<a href="https://owocny.com/images/korelacja-rok-zasadzenia-przemysl.png" class="image">
+									<img src="OWOCNY.COM_pliki/korelacja-rok-zasadzenia-przemysl.png" alt="wykres korelacji roku zaadzenia z udziałem przemysłu">
+								</a>
+								<div class="caption">
+									<h3>Wykres korelacji</h3>
+									<p>Wykres wpływu wieku kwater na to, ile zbiera się tam przemysłu.
+											Przykładowy widok w trakcie sezonu (niektóre mają sam przemysł - przerywkę)</p>
+								</div>
+							</article>
+							<article>
+								<a href="https://owocny.com/images/wydajnosc-mapa.jpg" class="image">
+									<img src="OWOCNY.COM_pliki/wydajnosc-mapa.jpg" alt="mapa wydajności">
+								</a>
+								<div class="caption">
+									<h3>Mapa wydajności</h3>
+									<p>Barwa ułatwia analizę, a w raporcie mapa jest interaktywna - można klikać w kwatery po więcej szczegółów.</p>
+								</div>
+							</article>
+							<article>
+								<a href="https://owocny.com/images/klasy-jakosci-wykresKolowy.jpg" class="image">
+									<img src="OWOCNY.COM_pliki/klasy-jakosci-wykresKolowy.jpg" alt="wykres kołowy jakości">
+								</a>
+								<div class="caption">
+									<h3>Jakość</h3>
+									<p>Udział różnych klas jakości (E - Ekstra, P - przemysł) w plonie poszczególnych odmian</p>
+								</div>
+							</article>
+							<article>
+								<a href="https://owocny.com/images/etykieta.jpg" class="image">
+									<img src="OWOCNY.COM_pliki/etykieta.jpg" alt=" etykieta - naklejka na opakowania">
+								</a>
+								<div class="caption">
+									<h3>Etykieta - naklejka</h3>
+									<p>Wygodny sposób znakowania towaru</p>
+								</div>
+							</article>
+						</div>
+					</section>
+
+					<footer class="wrapper">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="https://www.youtube.com/@adamsiedlecki" class="icon fa-brands fa-youtube"><span class="label">YouTube</span></a></li>
+								<li><a href="mailto:adamsiedlec+owocny.com@gmail.com" class="icon fa-solid fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							<p>© OWOCNY.COM </p>
+						</div>
+					</footer>
+
+			</div>
+
+			<script src="OWOCNY.COM_pliki/particles.js"></script>
+			<script>
+				particlesJS.load('particles-js', 'assets/js/particles.json', function() {
+					console.log('callback - particles.js config loaded');
+				});
+			</script>
+	
+</body><app-ls-content ng-version="17.3.7"></app-ls-content></html>

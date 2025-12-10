@@ -29,3 +29,19 @@ Potrzebne do odczytywania dokumentów do vectorStore
 ```
 ollama pull mxbai-embed-large
 ```
+
+Udało się wczytać html do vectorStore
+```agsl
+http://localhost:8080/unstructured?message=Do czego służy owocny.com
+
+Owocny.com jest serwisem oferującym system zarządzania sadem (OMS) dla owocowych gospodarstw. Oferuje on narzędzia takie jak:
+
+- Łatwe rozliczenia akordowe.
+- Szybkie drukowanie etykiet z danymi o odmianach, daty zbiorów, klasa jakości itp., co ułatwia magazynowanie towaru oraz spełnia wymagania formalne związane z znakowaniem owoców.
+- Analiza wydajności upraw per kwarta/odmiana/rok posadzenia/wysokość kwatery n.p.m. (dane pobierane są z geoportal.gov.pl).
+- Możliwość śledzenia zmian w uprawach i tworzenie nowych map upraw rocznie.
+- Raport akordowy wysyłany na maila, co ułatwia rozliczanie się z kontrahentami bez potrzeby podliczania ręcznie zeszytu.
+
+Sytsem jest zaprojektowany tak, aby upraszczać proces zarządzania owocowymi gospodarstwami i ułatwiać pracę zarówno na polach, jak i przy analizie danych.
+```
+

@@ -39,4 +39,18 @@ public class ChatController {
                 .entity(StructuredListResponse.class);
     }
 
+    @GetMapping("/unstructured")
+    public String questionUnstructuredResponse(@RequestParam(value = "message",
+            defaultValue = "Od czego pochodzi skrót RGB?") String message) {
+        return chatClient.prompt()
+                .user(message)
+                .system("""
+                        Odpowiadaj na pytania które zada użytkownik, ale bez zbędnego przedłużania.
+                        Używaj dostępnych narzędzi.
+                        """)
+                .tools(taxTools)
+                .call()
+                .content();
+    }
+
 }
