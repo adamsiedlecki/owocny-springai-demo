@@ -3,6 +3,8 @@ package net.asiedlecki.owocny.owocny_springai_demo.api;
 import net.asiedlecki.owocny.owocny_springai_demo.model.StructuredListResponse;
 import net.asiedlecki.owocny.owocny_springai_demo.tools.TaxTools;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.vectorstore.QuestionAnswerAdvisor;
+import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,14 +15,18 @@ public class ChatController {
     private final ChatClient chatClient;
     private final TaxTools taxTools;
 
-    public ChatController(ChatClient.Builder builder, TaxTools taxTools) {
+    public ChatController(ChatClient.Builder builder,
+                          TaxTools taxTools,
+                          VectorStore vectorStore) {
         this.taxTools = taxTools;
         this.chatClient = builder
+                .defaultAdvisors(QuestionAnswerAdvisor.builder(vectorStore).build())
                 .build();
     }
 
     @GetMapping("/")
-    public StructuredListResponse question(@RequestParam(value = "message", defaultValue = "Wymień klasy gleby w Polsce i policz stawki podatku rolnego dla każdej z nich - dla powierzchni 2Ha .") String message) {
+    public StructuredListResponse question(@RequestParam(value = "message",
+            defaultValue = "Wymień klasy gleby w Polsce i policz stawki podatku rolnego dla każdej z nich - dla powierzchni 2Ha .") String message) {
         return chatClient.prompt()
                 .user(message)
                 .system("""

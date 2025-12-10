@@ -24,3 +24,8 @@ java.lang.IllegalStateException: No ToolCallback found for tool name: narzedie_d
 	at org.springframework.ai.model.tool.DefaultToolCallingManager.executeToolCall(DefaultToolCallingManager.java:219) ~[spring-ai-model-1.1.2.jar:1.1.2]
 	at org.springframework.ai.model.tool.DefaultToolCallingManager.executeToolCalls(DefaultToolCallingManager.java:143) ~[spring-ai-model-1.1.2.jar:1.1.2]
 ```
+
+Potrzebne do odczytywania dokumentów do vectorStore
+```
+ollama pull mxbai-embed-large
+```
