@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class ChatController {
 
     private final ChatClient chatClient;
+    private final TaxTools taxTools;
 
     public ChatController(ChatClient.Builder builder, TaxTools taxTools) {
+        this.taxTools = taxTools;
         this.chatClient = builder
-                .defaultTools(taxTools)
                 .build();
     }
 
@@ -25,7 +26,9 @@ public class ChatController {
                 .system("""
                         Gdy użytkownik pyta o wymienienie rzeczy jakiegoś rodzaju, napisz krótki wstęp - maksymalnie 2 zdania.
                         Następnie wymień te rzeczy wraz z informacjami które chce użytkownik, ale bez zbędnego przedłużania.
+                        Używaj dostępnych narzędzi.
                         """)
+                .tools(taxTools)
                 .call()
                 .entity(StructuredListResponse.class);
     }

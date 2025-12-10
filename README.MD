@@ -17,3 +17,10 @@ HTTP 400 - {"error":"registry.ollama.ai/SpeakLeash/bielik-4.5b-v3.0-instruct:Q8_
 HTTP 400 - {"error":"registry.ollama.ai/library/deepseek-r1:14b does not support tools"}
 HTTP 400 - {"error":"registry.ollama.ai/library/deepseek-v2:16b does not support tools
 ```
+
+Błąd - dane wejściowe do toola muszą być obiektem, nie można robić listy parametrów
+```agsl
+java.lang.IllegalStateException: No ToolCallback found for tool name: narzedie_do_obliczania_podatku_rolnego
+	at org.springframework.ai.model.tool.DefaultToolCallingManager.executeToolCall(DefaultToolCallingManager.java:219) ~[spring-ai-model-1.1.2.jar:1.1.2]
+	at org.springframework.ai.model.tool.DefaultToolCallingManager.executeToolCalls(DefaultToolCallingManager.java:143) ~[spring-ai-model-1.1.2.jar:1.1.2]
+```
