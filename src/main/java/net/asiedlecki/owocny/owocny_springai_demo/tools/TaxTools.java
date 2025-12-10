@@ -12,9 +12,9 @@ import java.util.List;
 @Component
 public class TaxTools {
 
-    @Tool(name="obliczanie_podatku_rolnego", description = "Oblicza_podatek_rolny")
+    @Tool(name="obliczanie_podatku_rolnego")
     public double calculateTax(@ToolParam(description = "powierchnia_w_hektarach") double powierzchnia,
-                               @ToolParam(description = "klasa_gleby") String klasaGleby) {
+                               @ToolParam(description = "nazwa_klasy_gleby") String klasaGleby) {
         log.info("TaxTools invoked - calculateTax {} Ha, klasa: {}", powierzchnia, klasaGleby);
         return switch (klasaGleby) {
             case "I" -> powierzchnia * 100;
@@ -26,7 +26,7 @@ public class TaxTools {
         };
     }
 
-    @Tool(name="pobieranie_klas_gleb_w_polsce", description = "Pobiera_rodzaje_klas_gleby")
+    @Tool(name="pobieranie_nazw_klas_gleb_w_polsce")
     public TaxOutput getAreaTypes() {
         log.info("TaxTools invoked - getAreaTypes");
         return new TaxOutput(List.of("I", "II", "III", "IVa",  "IVb"));
